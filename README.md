@@ -29,7 +29,7 @@ src
   - [반복문 안에서 InputMismatchException 예외 발생 시 무한 루프 발생](https://gajicoding.tistory.com/174)
 - 새로운 지식
   - [switch 표현식 (Switch Expression)](https://gajicoding.tistory.com/175)
-- UML <br/>
+- UML <br/><br/>
 ![uml_level1](./images/uml_level1.png)
 
 ## Level 2
@@ -39,6 +39,5 @@ src
 - 새로운 지식
   - [커밋 컨벤션 (Commit Convention)](https://gajicoding.tistory.com/176)
   - [유틸리티 클래스 (Utility Class)](https://gajicoding.tistory.com/177)
-- UML <br/>
+- UML <br/><br/>
 ![uml_level1](./images/uml_level2.png)
-
