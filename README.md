@@ -14,8 +14,12 @@
 ```bash
 src
 ├────level1
-│  ├──── App.class
+│  └──── App.class
 ├── level2
+│  ├──── App.class
+│  ├──── MyScanner.class
+│  ├──── Calculator.class
+│  └──── Const.class
 └── level3
 ```
 
