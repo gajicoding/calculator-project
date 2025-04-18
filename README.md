@@ -14,11 +14,12 @@
 ## 파일 구조
 ```bash
 src
-├── level1
+├────level1
+│  ├──── App.class
 ├── level2
 └── level3
 ```
-level 폴더별 Main 클래스가 존재한다.
+
 
 ---
 ## Level 1
