@@ -10,38 +10,34 @@ public class App {
 
         int[] nums;
         char symbol;
-        Optional<Integer> res;
-        Queue<Integer> result;
+        Optional<Integer> result;
+        Queue<Integer> history;
 
         System.out.println("계산기 프로그램을 시작합니다..");
 
+        // 계산기 반복하기
         while(true) {
             System.out.print("양의 정수(0포함) 2개를 입력하시오: ");
-            nums = myScanner.inputNums().orElse(null);
+            nums = myScanner.inputNums();
             if(nums == null) {
                 continue;
             }
 
             System.out.print("사칙연산(+, -, *, /) 기호를 입력하시오: ");
             symbol = myScanner.inputSymbol();
-            if(symbol == '\0'){
+            if(symbol == Const.NOT_SUPPORTED_SYMBOL){
                 continue;
             }
 
-            // /0 체크
-            if(nums[1] == 0 && symbol == '/') {
-                System.out.println("잘못된 입력: " + "0으로 나눌 수 없다." + "\n");
+            result = calculator.calculate(nums, symbol);
+            if(result.isEmpty()){
                 continue;
             }
+            System.out.println("계산 결과: " + result.get());
 
-            res = calculator.calculate(nums[0], nums[1], symbol);
-            if(res.isEmpty()){
-                continue;
-            }
-            System.out.println("계산 결과: " + res.get());
-
+            // 반복문 종료
             System.out.print("종료하려면 \"exit\"를 입력하시오 (계속하려면 아무거나 입력): ");
-            if(myScanner.inputExit()){
+            if(myScanner.isExit()) {
                 break;
             }
             System.out.println();
@@ -49,24 +45,24 @@ public class App {
 
         System.out.println("-----------------------------------------");
 
-        // 결과 관리 (삭제)
+        // 기록 관리 (삭제)
         while(true) {
-            result = calculator.getResult();
+            history = calculator.getHistory();
 
-            if(result.isEmpty()) {
-                System.out.print("남은 기록이 없습니다.");
+            if(history.isEmpty()) {
                 break;
             }
 
-            System.out.print("저장된 결과 기록 확인: " + calculator.getResult() + "\n");
+            System.out.print("저장된 결과 기록 확인: " + calculator.getHistory() + "\n");
 
-            System.out.print("최근 기록을 삭제하겠습니까? (y, n): ");
-            if(myScanner.inputY()){
-                calculator.popResult();
+            System.out.print("가장 오래된 기록을 삭제하겠습니까? (y): ");
+            if(myScanner.askRemoveHistory()){
+                calculator.removeOldestHistory();
             }
 
             System.out.print("종료하려면 \"exit\"를 입력하시오 (계속하려면 아무거나 입력): ");
-            if(myScanner.inputExit()){
+
+            if(myScanner.isExit()){
                 break;
             }
             System.out.println();
@@ -74,11 +70,8 @@ public class App {
 
 
         // 마무리
-        result = calculator.getResult();
-        if(!result.isEmpty()) {
-            System.out.print("\n최종 기록: " + result + "\n");
-        }
-
+        history = calculator.getHistory();
+        System.out.print("\n최종 기록: " + history + "\n");
         System.out.println("계산기 프로그램이 종료되었습니다.");
 
         myScanner.close();

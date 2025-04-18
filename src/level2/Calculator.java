@@ -5,34 +5,42 @@ import java.util.Optional;
 import java.util.Queue;
 
 public class Calculator {
-    Queue<Integer> result = new LinkedList<>();
+    Queue<Integer> history = new LinkedList<>();
 
     // 기본 생성자 유지
 
-    public Queue<Integer> getResult() {
-        return result;
+    public Queue<Integer> getHistory() {
+        return history;
     }
 
-    public Optional<Integer> calculate(int num1, int num2, char symbol) {
-        int res;
+    public Optional<Integer> calculate(int[] nums, char symbol) {
+        int result;
+
+        // /0 체크
+        if(nums[1] == 0 && symbol == '/') {
+            throw new ArithmeticException("0으로 나눌 수 없다.");
+        }
+
         try {
-            res = switch (symbol) {
-                case '+' -> num1 + num2;
-                case '-' -> num1 - num2;
-                case '*' -> num1 * num2;
-                case '/' -> num1 / num2;
+            result = switch (symbol) {
+                case '+' -> nums[0] + nums[1];
+                case '-' -> nums[0] - nums[1];
+                case '*' -> nums[0] * nums[1];
+                case '/' -> nums[0] / nums[1];
                 default -> throw new Exception("사칙연산(+, -, *, /) 기호를 입력해야 한다.");
             };
-            this.result.add(res);
 
-            return Optional.of(res);
+            this.history.add(result);
+
+            return Optional.of(result);
+
         } catch(Exception e) {
             System.out.println("잘못된 입력: " + e.getMessage() + "\n");
         }
         return Optional.empty();
     }
 
-    public void popResult() {
-        result.poll();
+    public void removeOldestHistory() {
+        history.poll();
     }
 }
