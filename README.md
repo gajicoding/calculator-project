@@ -17,9 +17,9 @@ src
 │  └──── App.class
 ├── level2
 │  ├──── App.class
-│  ├──── MyScanner.class
+│  ├──── Const.class
 │  ├──── Calculator.class
-│  └──── Const.class
+│  └──── MyScanner.class
 └── level3
 ```
 
