@@ -23,7 +23,8 @@ src
 - 요구사항 정의 및 설계: [Lv1. 요구사항 정의 및 설계](https://gajicoding.tistory.com/173)
 - 트러블 슈팅
   - [반복문 안에서 InputMismatchException 예외 발생 시 무한 루프 발생](https://gajicoding.tistory.com/174)
-
+- 새로운 지식
+  - [switch 표현식 (Switch Expression)](https://gajicoding.tistory.com/175)
 
 ## Level 2
 
