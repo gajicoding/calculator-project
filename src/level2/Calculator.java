@@ -16,12 +16,12 @@ public class Calculator {
     public Optional<Integer> calculate(int[] nums, char symbol) {
         int result;
 
-        // /0 체크
-        if(nums[1] == 0 && symbol == '/') {
-            throw new ArithmeticException("0으로 나눌 수 없다.");
-        }
-
         try {
+            // /0 체크
+            if(nums[1] == 0 && symbol == '/') {
+                throw new ArithmeticException("0으로 나눌 수 없다.");
+            }
+
             result = switch (symbol) {
                 case '+' -> nums[0] + nums[1];
                 case '-' -> nums[0] - nums[1];
