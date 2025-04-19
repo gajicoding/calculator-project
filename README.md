@@ -13,14 +13,15 @@
 ## 파일 구조
 ```bash
 src
-├────level1
+├──── level1
 │  └──── App.class
-├── level2
+├──── level2
 │  ├──── App.class
 │  ├──── Const.class
 │  ├──── Calculator.class
 │  └──── MyScanner.class
-└── level3
+├──── level3
+└──── README.md
 ```
 
 ## Level 1
