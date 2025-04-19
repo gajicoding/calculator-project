@@ -29,7 +29,7 @@ public class MyScanner {
         } catch (Exception e) {
             System.out.println("잘못된 입력: " + e.getMessage() + "\n");
         }
-        return null;
+        return new int[0];
     }
 
     public char inputSymbol() {

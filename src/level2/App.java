@@ -19,7 +19,7 @@ public class App {
         while(true) {
             System.out.print("양의 정수(0포함) 2개를 입력하시오: ");
             nums = myScanner.inputNums();
-            if(nums == null) {
+            if(nums.length == 0) {
                 continue;
             }
 
