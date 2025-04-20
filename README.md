@@ -23,10 +23,10 @@ src
 ├──── level3
 └──── README.md
 ```
-
-## Level 1
+## 진행 과정
+### Level 1
 - 요구사항 정의 및 설계: [Lv1. 요구사항 정의 및 설계](https://gajicoding.tistory.com/173)
-- 트러블 슈팅
+- 문제 해결 (트러블 슈팅)
   - [반복문 안에서 InputMismatchException 예외 발생 시 무한 루프 발생](https://gajicoding.tistory.com/174)
 - 새로운 지식
   - [switch 표현식 (Switch Expression)](https://gajicoding.tistory.com/175)
@@ -35,10 +35,11 @@ src
 - UML <br/><br/>
 ![uml_level1](./images/uml_level1.png)
 
-## Level 2
+### Level 2
 - 요구사항 정의 및 설계: [Lv2. 요구사항 정의 및 설계](https://gajicoding.tistory.com/179)
-- 트러블 슈팅
+- 코드 개선 (리팩토링)
   - [유효성 검사는 어디에서 해야 될까?](https://gajicoding.tistory.com/178)
+  - [Optional 제대로 사용하기](https://gajicoding.tistory.com/180)
 - 새로운 지식
   - [커밋 컨벤션 (Commit Convention)](https://gajicoding.tistory.com/176)
   - [유틸리티 클래스 (Utility Class)](https://gajicoding.tistory.com/177)
