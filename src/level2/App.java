@@ -55,7 +55,7 @@ public class App {
 
             System.out.print("저장된 결과 기록 확인: " + calculator.getHistory() + "\n");
 
-            System.out.print("첫 번째 기록을 삭제하겠습니까? (y): ");
+            System.out.print("가장 오래된 기록 한 개를 삭제하겠습니까? (y): ");
             if(myScanner.askRemoveHistory()){
                 calculator.removeOldestHistory();
             }
