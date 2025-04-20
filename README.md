@@ -23,8 +23,8 @@ src
 ├──── level3
 └──── README.md
 ```
-## 진행 과정
-### Level 1
+## 과제 진행 요약
+### 🌱 Level 1
 - 요구사항 정의 및 설계: [Lv1. 요구사항 정의 및 설계](https://gajicoding.tistory.com/173)
 - 문제 해결 (트러블 슈팅)
   - [반복문 안에서 InputMismatchException 예외 발생 시 무한 루프 발생](https://gajicoding.tistory.com/174)
@@ -34,8 +34,10 @@ src
 
 - UML <br/><br/>
 ![uml_level1](./images/uml_level1.png)
+<hr style="height:1px; background-color:#e0e0e0; border:none;" />
 
-### Level 2
+
+### 🌿 Level 2
 - 요구사항 정의 및 설계: [Lv2. 요구사항 정의 및 설계](https://gajicoding.tistory.com/179)
 - 코드 개선 (리팩토링)
   - [유효성 검사는 어디에서 해야 될까?](https://gajicoding.tistory.com/178)
@@ -47,3 +49,8 @@ src
 
 - UML <br/><br/>
 ![uml_level1](./images/uml_level2.png)
+<hr style="height:1px; background-color:#e0e0e0; border:none;" />
+
+
+### 🌳 Level 3
+- 요구사항 정의 및 설계: 
