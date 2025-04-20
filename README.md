@@ -34,7 +34,7 @@ src
 
 - UML <br/><br/>
 ![uml_level1](./images/uml_level1.png)
-<hr style="height:1px; background-color:#e0e0e0; border:none;" />
+<hr style="border: 0; height: 1px; background: #ccc;" />
 
 
 ### 🌿 Level 2
@@ -49,7 +49,7 @@ src
 
 - UML <br/><br/>
 ![uml_level1](./images/uml_level2.png)
-<hr style="height:1px; background-color:#e0e0e0; border:none;" />
+<hr style="border: 0; height: 1px; background: #ccc;" />
 
 
 ### 🌳 Level 3
