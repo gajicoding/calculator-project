@@ -43,9 +43,9 @@ public class App {
             if(result.isEmpty()){
                 continue;
             }
-            calculator.getHistory().add(result.get());
-            System.out.println("계산 결과: " + result.get());
+
             calculator.addHistory(result.get());
+            System.out.println("계산 결과: " + result.get());
 
             // 반복문 종료
             System.out.print("종료하려면 \"exit\"를 입력하시오 (계속하려면 아무거나 입력): ");
