@@ -3,7 +3,7 @@ package level2;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class MyScanner {
+class MyScanner {
     Scanner sc = new Scanner(System.in);
 
     // 기본 생성자 유지

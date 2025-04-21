@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Optional;
 import java.util.Queue;
 
-public class Calculator {
+class Calculator {
     Queue<Integer> history = new LinkedList<>();
 
     // 기본 생성자 유지

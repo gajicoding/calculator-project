@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 import static level3.Operator.*;
 
-public class ArithmeticCalculator {
+class ArithmeticCalculator {
     Queue<Number> history = new LinkedList<>();
 
     // 기본 생성자 유지

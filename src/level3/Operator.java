@@ -1,6 +1,6 @@
 package level3;
 
-public enum Operator {
+enum Operator {
     ADD('+', (a, b) -> {
         if(a instanceof Integer) {
             return (Integer) a + (Integer) b;

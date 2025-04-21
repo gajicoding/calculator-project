@@ -1,17 +1,15 @@
 package level3;
 
-import level2.Const;
-
 import java.util.InputMismatchException;
 import java.util.Optional;
 import java.util.Scanner;
 
-public class MyScanner {
+class MyScanner {
     Scanner sc = new Scanner(System.in);
 
     // 기본 생성자 유지
 
-//    public Optional<Integer> inputIntNum() {
+//    Optional<Integer> inputIntNum() {
 //        int num;
 //
 //        try {
@@ -29,7 +27,7 @@ public class MyScanner {
 //        return Optional.empty();
 //    }
 
-    public Optional<Double> inputDoubleNum() {
+    Optional<Double> inputDoubleNum() {
         double num;
 
         try {
@@ -47,7 +45,7 @@ public class MyScanner {
         return Optional.empty();
     }
 
-//    public Number[] inputIntNums() {
+//    Number[] inputIntNums() {
 //        Number[] nums = new Number[2];
 //
 //        try {
@@ -66,7 +64,7 @@ public class MyScanner {
 //        return new Number[0];
 //    }
 
-    public Number[] inputDoubleNums() {
+    Number[] inputDoubleNums() {
         Number[] nums = new Number[2];
 
         try {
@@ -85,7 +83,7 @@ public class MyScanner {
         return new Number[0];
     }
 
-    public char inputSymbol() {
+    char inputSymbol() {
         try{
             return sc.nextLine().charAt(0);
         } catch (Exception e) {
@@ -95,7 +93,7 @@ public class MyScanner {
         return Const.NOT_SUPPORTED_SYMBOL;
     }
 
-    public boolean isExit() {
+    boolean isExit() {
         try{
             if(sc.nextLine().equals("exit")){
                 return true;
@@ -106,7 +104,7 @@ public class MyScanner {
         return false;
     }
 
-    public void close() {
+    void close() {
         sc.close();
     }
 }
