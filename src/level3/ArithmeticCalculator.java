@@ -14,6 +14,7 @@ class ArithmeticCalculator {
         return history;
     }
 
+    // 계산
     public <T extends Number> Optional<T> calculate(T num1, T num2, char symbol) {
         try {
             Operator op = Operator.findBySymbol(symbol);
@@ -22,9 +23,9 @@ class ArithmeticCalculator {
                 throw new NullPointerException("사칙연산(+, -, *, /) 기호를 입력해야 한다.");
             }
 
-            T castedResult = op.invoke(num1, num2);
+            T result = op.invoke(num1, num2);
 
-            return Optional.ofNullable(castedResult);
+            return Optional.ofNullable(result);
 
         } catch(Exception e) {
             System.out.println("잘못된 입력: " + e.getMessage() + "\n");
@@ -32,6 +33,9 @@ class ArithmeticCalculator {
         return Optional.empty();
     }
 
+    public void addHistory(Number num){
+        history.add(num);
+    }
 
     public Queue<Number> getHistoryGreaterThan(Double num){
         // stream 활용
@@ -39,6 +43,4 @@ class ArithmeticCalculator {
                 .filter(h -> h.doubleValue() > num)
                 .collect(Collectors.toCollection(LinkedList::new));
     }
-
-
 }

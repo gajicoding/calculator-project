@@ -17,6 +17,7 @@ public class App {
         System.out.println("계산기 프로그램을 시작합니다..");
 
         while(true) {
+            // 두 수 입력 (double 형)
             System.out.print("첫 번째 수를 입력하시오: ");
             nums[0] = myScanner.inputDoubleNum().orElse(null);
             System.out.print("두 번째 수를 입력하시오: ");
@@ -25,23 +26,26 @@ public class App {
                 continue;
             }
 
-
+            // 연산 기호 입력
             System.out.print("사칙연산(+, -, *, /) 기호를 입력하시오: ");
             symbol = myScanner.inputSymbol();
             if(findBySymbol(symbol) == null) {
                 continue;
             }
 
+            // 조건에 따라 int 형으로 변환
             if (isIntegerNums(nums) && symbol != Operator.DIV.getSymbol()) {
                 nums = convertIntegerNums(nums);
             }
 
+            // 계산
             result = calculator.calculate(nums[0], nums[1], symbol);
             if(result.isEmpty()){
                 continue;
             }
             calculator.getHistory().add(result.get());
             System.out.println("계산 결과: " + result.get());
+            calculator.addHistory(result.get());
 
             // 반복문 종료
             System.out.print("종료하려면 \"exit\"를 입력하시오 (계속하려면 아무거나 입력): ");
@@ -66,7 +70,6 @@ public class App {
         System.out.print("\n최종 기록: " + history + "\n");
         System.out.println("계산기 프로그램이 종료되었습니다.");
 
-
         myScanner.close();
     }
 
@@ -80,5 +83,4 @@ public class App {
                 .map(Number::intValue)
                 .toArray(Number[]::new);
     }
-
 }
