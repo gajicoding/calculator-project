@@ -14,13 +14,18 @@
 ```bash
 src
 ├──── level1
-│  └──── App.class
+│  └──── App.java
 ├──── level2
-│  ├──── App.class
-│  ├──── Const.class
-│  ├──── Calculator.class
-│  └──── MyScanner.class
+│  ├──── App.java
+│  ├──── Const.java
+│  ├──── Calculator.java
+│  └──── MyScanner.java
 ├──── level3
+│  ├──── App.java
+│  ├──── ArithmeticCalculator.java
+│  ├──── Const.java
+│  ├──── MyScanner.java
+│  └──── Operator.java
 └──── README.md
 ```
 ## 과제 진행 요약
@@ -48,9 +53,19 @@ src
 
 
 - UML <br/><br/>
-![uml_level1](./images/uml_level2.png)
+![uml_level2](./images/uml_level2.png)
 ---
 
 
 ### 🌳 Level 3
-- 요구사항 정의 및 설계: 
+- 요구사항 정의 및 설계: [Lv3. 요구사항 정의 및 설계](https://gajicoding.tistory.com/190)
+- 코드 개선 (리팩토링)
+  - [getItems.add(...) vs addItem(...)](https://gajicoding.tistory.com/189)
+- 문제 해결 (트러블 슈팅)
+  - [java: incompatible types: T cannot be converted to capture#1 of ?](https://gajicoding.tistory.com/188)
+- 새로운 지식
+  - [Enum 열거형 타입](https://gajicoding.tistory.com/181)
+  - [어노테이션(Annotation)](https://gajicoding.tistory.com/187)
+
+- UML <br/><br/>
+  ![uml_level3](./images/uml_level3.png)
