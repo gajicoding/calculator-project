@@ -1,15 +1,12 @@
 package level3;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Optional;
 import java.util.Queue;
 import java.util.stream.Collectors;
 
-import static level3.Operator.*;
-
 class ArithmeticCalculator {
-    Queue<Number> history = new LinkedList<>();
+    private final Queue<Number> history = new LinkedList<>();
 
     // 기본 생성자 유지
 

@@ -5,7 +5,7 @@ import java.util.Optional;
 import java.util.Queue;
 
 class Calculator {
-    Queue<Integer> history = new LinkedList<>();
+    private final Queue<Integer> history = new LinkedList<>();
 
     // 기본 생성자 유지
 

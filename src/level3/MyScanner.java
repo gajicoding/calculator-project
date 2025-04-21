@@ -5,7 +5,7 @@ import java.util.Optional;
 import java.util.Scanner;
 
 class MyScanner {
-    Scanner sc = new Scanner(System.in);
+    private final Scanner sc = new Scanner(System.in);
 
     // 기본 생성자 유지
 
