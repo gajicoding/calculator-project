@@ -38,14 +38,20 @@ public class App {
             System.out.print("두 개의 수를 입력하시오: ");
             nums = myScanner.inputDoubleNums();
 
+            System.out.print("사칙연산(+, -, *, /) 기호를 입력하시오: ");
+            symbol = myScanner.inputSymbol();
+
+
             if(nums[0].doubleValue() % 1 == 0  && nums[1].doubleValue() % 1 == 0){
                 nums = Arrays.stream(nums)
                         .map(Number::intValue)
                         .toArray(Number[]::new);
             }
-
-            System.out.print("사칙연산(+, -, *, /) 기호를 입력하시오: ");
-            symbol = myScanner.inputSymbol();
+            if(symbol == Operator.DIV.getSymbol()){
+                nums = Arrays.stream(nums)
+                        .map(Number::doubleValue)
+                        .toArray(Number[]::new);
+            }
 
             result = calculator.calculate(nums[0], nums[1], symbol);
             if(result.isEmpty()){

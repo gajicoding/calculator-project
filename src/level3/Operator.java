@@ -56,7 +56,6 @@ public enum Operator {
         this.op = op;
     }
 
-    // Getter / Setter
     public char getSymbol() {
         return symbol;
     }
