@@ -2,36 +2,36 @@ package level3;
 
 public enum Operator {
     ADD('+', (a, b) -> {
-        if(a instanceof Integer && b instanceof Integer) {
+        if(a instanceof Integer) {
             return (Integer) a + (Integer) b;
-        } else if(a instanceof Double && b instanceof Double) {
+        } else if(a instanceof Double) {
             return (Double) a + (Double) b;
         }
         throw new IllegalArgumentException("지원하지 않는 타입");
     }),
     SUB('-', (a, b) -> {
-        if(a instanceof Integer && b instanceof Integer) {
+        if(a instanceof Integer) {
             return (Integer) a - (Integer) b;
-        } else if(a instanceof Double && b instanceof Double) {
+        } else if(a instanceof Double) {
             return (Double) a - (Double) b;
         }
         throw new IllegalArgumentException("지원하지 않는 타입");
     }),
     MUL('*', (a, b) -> {
-        if(a instanceof Integer && b instanceof Integer) {
+        if(a instanceof Integer) {
             return (Integer) a * (Integer) b;
-        } else if(a instanceof Double && b instanceof Double) {
+        } else if(a instanceof Double) {
             return (Double) a * (Double) b;
         }
         throw new IllegalArgumentException("지원하지 않는 타입");
     }),
     DIV('/', (a, b) -> {
-        if(a instanceof Integer && b instanceof Integer) {
+        if(a instanceof Integer) {
             if((Integer) b == 0) {
                 throw new ArithmeticException("0으로 나눌 수 없다.");
             }
             return (Integer) a / (Integer) b;
-        } else if(a instanceof Double && b instanceof Double) {
+        } else if(a instanceof Double) {
             if((Double) b == 0) {
                 throw new ArithmeticException("0으로 나눌 수 없다.");
             }

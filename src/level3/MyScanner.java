@@ -11,23 +11,23 @@ public class MyScanner {
 
     // 기본 생성자 유지
 
-    public Optional<Integer> inputIntNum() {
-        int num;
-
-        try {
-            num = sc.nextInt();
-            sc.nextLine(); // 버퍼 비우기
-
-            return Optional.of(num);
-
-        } catch (InputMismatchException e){
-            System.out.println("잘못된 입력: " + "정수를 입력해야 한다." + "\n");
-            sc.nextLine(); // 버퍼 비우기
-        } catch (Exception e) {
-            System.out.println("잘못된 입력: " + e.getMessage() + "\n");
-        }
-        return Optional.empty();
-    }
+//    public Optional<Integer> inputIntNum() {
+//        int num;
+//
+//        try {
+//            num = sc.nextInt();
+//            sc.nextLine(); // 버퍼 비우기
+//
+//            return Optional.of(num);
+//
+//        } catch (InputMismatchException e){
+//            System.out.println("잘못된 입력: " + "정수를 입력해야 한다." + "\n");
+//            sc.nextLine(); // 버퍼 비우기
+//        } catch (Exception e) {
+//            System.out.println("잘못된 입력: " + e.getMessage() + "\n");
+//        }
+//        return Optional.empty();
+//    }
 
     public Optional<Double> inputDoubleNum() {
         double num;
@@ -47,24 +47,24 @@ public class MyScanner {
         return Optional.empty();
     }
 
-    public Number[] inputIntNums() {
-        Number[] nums = new Number[2];
-
-        try {
-            nums[0] = sc.nextInt();
-            nums[1] = sc.nextInt();
-            sc.nextLine(); // 버퍼 비우기
-
-            return nums;
-
-        } catch (InputMismatchException e){
-            System.out.println("잘못된 입력: " + "정수를 입력해야 한다." + "\n");
-            sc.nextLine(); // 버퍼 비우기
-        } catch (Exception e) {
-            System.out.println("잘못된 입력: " + e.getMessage() + "\n");
-        }
-        return new Number[0];
-    }
+//    public Number[] inputIntNums() {
+//        Number[] nums = new Number[2];
+//
+//        try {
+//            nums[0] = sc.nextInt();
+//            nums[1] = sc.nextInt();
+//            sc.nextLine(); // 버퍼 비우기
+//
+//            return nums;
+//
+//        } catch (InputMismatchException e){
+//            System.out.println("잘못된 입력: " + "정수를 입력해야 한다." + "\n");
+//            sc.nextLine(); // 버퍼 비우기
+//        } catch (Exception e) {
+//            System.out.println("잘못된 입력: " + e.getMessage() + "\n");
+//        }
+//        return new Number[0];
+//    }
 
     public Number[] inputDoubleNums() {
         Number[] nums = new Number[2];

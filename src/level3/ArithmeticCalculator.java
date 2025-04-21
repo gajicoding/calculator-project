@@ -16,7 +16,7 @@ public class ArithmeticCalculator {
         return history;
     }
 
-     public <T extends Number> Optional<T> calculate(T num1, T num2, char symbol) {
+    public <T extends Number> Optional<T> calculate(T num1, T num2, char symbol) {
         try {
             Operator op = Operator.findBySymbol(symbol);
 
