@@ -14,7 +14,7 @@ class ArithmeticCalculator {
         return history;
     }
 
-    public <T extends Number> Optional<T> calculate(T num1, T num2, char symbol) {
+    public <T> Optional<T> calculate(T num1, T num2, char symbol) {
         try {
             Operator op = Operator.findBySymbol(symbol);
 
@@ -24,7 +24,8 @@ class ArithmeticCalculator {
 
             @SuppressWarnings("unchecked")
             T result = (T) op.getOp().apply(num1, num2);
-            history.add(result);
+
+//            int result = op.getOp().apply(num1, num2).intValue();
 
             return Optional.of(result);
 
@@ -34,7 +35,7 @@ class ArithmeticCalculator {
         return Optional.empty();
     }
 
-    public Queue<Number> printHistoryGreaterThan(Double num){
+    public Queue<Number> getHistoryGreaterThan(Double num){
         return history.stream()
                 .filter(h -> h.doubleValue() > num)
                 .collect(Collectors.toCollection(LinkedList::new));

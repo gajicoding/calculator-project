@@ -3,51 +3,37 @@ package level3;
 import java.util.Arrays;
 import java.util.Optional;
 
+import static level3.Operator.findBySymbol;
+
 public class App {
     public static void main(String[] args) {
         MyScanner myScanner = new MyScanner();
         ArithmeticCalculator calculator = new ArithmeticCalculator();
 
-        Optional<Integer> inputOpt;
-        Number[] nums;
+        Number[] nums = new Number[2];
         char symbol;
         Optional<Number> result;
 
         System.out.println("계산기 프로그램을 시작합니다..");
 
         while(true) {
-//            System.out.print("정수 계산은 1, 실수 계산은 2를 입력하시오: ");
-//            inputOpt = myScanner.inputIntNum();
-//            if(inputOpt.isEmpty()) {
-//                continue;
-//            }
-//            if(inputOpt.get() != 1 && inputOpt.get() != 2) {
-//                System.out.println("잘못된 입력: " + "1이나 2를 입력해야 한다." + "\n");
-//                continue;
-//            }
-//
-//            System.out.printf("두 개의 %s를 입력하시오: ", inputOpt.get() == 1 ? "정수" : "실수");
-//            if(inputOpt.get() == 1) {
-//                nums = myScanner.inputIntNums();
-//            } else {
-//                nums = myScanner.inputDoubleNums();
-//            }
-
             System.out.print("두 개의 수를 입력하시오: ");
-            nums = myScanner.inputDoubleNums();
+            nums[0] = myScanner.inputDoubleNum().orElse(null);
+            nums[1] = myScanner.inputDoubleNum().orElse(null);
+            if(nums[0] == null || nums[1] == null) {
+                continue;
+            }
 
             System.out.print("사칙연산(+, -, *, /) 기호를 입력하시오: ");
             symbol = myScanner.inputSymbol();
+            if(findBySymbol(symbol) == null) {
+                continue;
+            }
 
-
-            if(nums[0].doubleValue() % 1 == 0  && nums[1].doubleValue() % 1 == 0){
+            if (isIntegerNums(nums) && symbol != Operator.DIV.getSymbol()) {
+                // stream 활용
                 nums = Arrays.stream(nums)
                         .map(Number::intValue)
-                        .toArray(Number[]::new);
-            }
-            if(symbol == Operator.DIV.getSymbol()){
-                nums = Arrays.stream(nums)
-                        .map(Number::doubleValue)
                         .toArray(Number[]::new);
             }
 
@@ -55,6 +41,7 @@ public class App {
             if(result.isEmpty()){
                 continue;
             }
+            calculator.getHistory().add(result.get());
             System.out.println("계산 결과: " + result.get());
 
             // 반복문 종료
@@ -74,7 +61,7 @@ public class App {
         Optional<Double> threshold = myScanner.inputDoubleNum();
 
         if(threshold.isPresent()) {
-            history = calculator.printHistoryGreaterThan(threshold.get()).toString();
+            history = calculator.getHistoryGreaterThan(threshold.get()).toString();
         }
 
         System.out.print("\n최종 기록: " + history + "\n");
@@ -82,5 +69,9 @@ public class App {
 
 
         myScanner.close();
+    }
+
+    private static boolean isIntegerNums(Number[] nums) {
+        return nums[0].doubleValue() % 1 == 0 && nums[1].doubleValue() % 1 == 0;
     }
 }
