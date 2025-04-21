@@ -61,7 +61,9 @@ enum Operator {
     }
 
     public <T> Operate<T> getOp() {
-        return (Operate<T>) op;
+        @SuppressWarnings("unchecked")
+        Operate<T> castedOP = (Operate<T>) op;
+        return castedOP;
     }
 
     public static Operator findBySymbol(char symbol) {

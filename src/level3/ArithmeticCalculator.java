@@ -22,6 +22,7 @@ class ArithmeticCalculator {
                 throw new NullPointerException("사칙연산(+, -, *, /) 기호를 입력해야 한다.");
             }
 
+            @SuppressWarnings("unchecked")
             T result = (T) op.getOp().apply(num1, num2);
             history.add(result);
 
