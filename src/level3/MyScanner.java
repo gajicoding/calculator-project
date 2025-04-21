@@ -1,6 +1,7 @@
-package level2;
+package level3;
 
 import java.util.InputMismatchException;
+import java.util.Optional;
 import java.util.Scanner;
 
 class MyScanner {
@@ -8,31 +9,24 @@ class MyScanner {
 
     // 기본 생성자 유지
 
-    public int[] inputNums() {
-        int[] nums = new int[2];
+    Optional<Double> inputDoubleNum() {
+        double num;
 
         try {
-            nums[0] = sc.nextInt();
-            nums[1] = sc.nextInt();
+            num = sc.nextDouble();
             sc.nextLine(); // 버퍼 비우기
 
-            // 양의 정수 조건 체크
-            if(nums[0] < 0 || nums[1] < 0) {
-                throw new Exception("양의 정수(0포함)을 입력해야 한다.");
-            }
-
-            return nums;
-
+            return Optional.of(num);
         } catch (InputMismatchException e){
-            System.out.println("잘못된 입력: " + "양의 정수(0포함)을 입력해야 한다." + "\n");
+            System.out.println("잘못된 입력: " + "실수를 입력해야 한다." + "\n");
             sc.nextLine(); // 버퍼 비우기
         } catch (Exception e) {
             System.out.println("잘못된 입력: " + e.getMessage() + "\n");
         }
-        return new int[0];
+        return Optional.empty();
     }
 
-    public char inputSymbol() {
+    char inputSymbol() {
         try{
             return sc.nextLine().charAt(0);
         } catch (Exception e) {
@@ -42,7 +36,7 @@ class MyScanner {
         return Const.NOT_SUPPORTED_SYMBOL;
     }
 
-    public boolean isExit() {
+    boolean isExit() {
         try{
             if(sc.nextLine().equals("exit")){
                 return true;
@@ -53,18 +47,7 @@ class MyScanner {
         return false;
     }
 
-    public boolean askRemoveHistory() {
-        try{
-            if(sc.nextLine().equalsIgnoreCase("y")){
-                return true;
-            }
-        } catch (Exception e) {
-            System.out.println("잘못된 입력: " + e.getMessage() + "\n");
-        }
-        return false;
-    }
-
-    public void close() {
+    void close() {
         sc.close();
     }
 }

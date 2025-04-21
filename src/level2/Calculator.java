@@ -4,8 +4,8 @@ import java.util.LinkedList;
 import java.util.Optional;
 import java.util.Queue;
 
-public class Calculator {
-    Queue<Integer> history = new LinkedList<>();
+class Calculator {
+    private final Queue<Integer> history = new LinkedList<>();
 
     // 기본 생성자 유지
 
@@ -17,6 +17,10 @@ public class Calculator {
         int result;
 
         try {
+            if (nums.length < 2) {
+                throw new IllegalArgumentException("두 개의 숫자가 필요하다.");
+            }
+
             // /0 체크
             if(nums[1] == 0 && symbol == '/') {
                 throw new ArithmeticException("0으로 나눌 수 없다.");
