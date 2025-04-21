@@ -1,5 +1,6 @@
 package level3;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Optional;
 import java.util.Queue;
@@ -14,7 +15,7 @@ class ArithmeticCalculator {
         return history;
     }
 
-    public <T> Optional<T> calculate(T num1, T num2, char symbol) {
+    public <T extends Number> Optional<T> calculate(T num1, T num2, char symbol) {
         try {
             Operator op = Operator.findBySymbol(symbol);
 
@@ -22,12 +23,9 @@ class ArithmeticCalculator {
                 throw new NullPointerException("사칙연산(+, -, *, /) 기호를 입력해야 한다.");
             }
 
-            @SuppressWarnings("unchecked")
-            T result = (T) op.getOp().apply(num1, num2);
+            T castedResult = op.invoke(num1, num2);
 
-//            int result = op.getOp().apply(num1, num2).intValue();
-
-            return Optional.of(result);
+            return Optional.ofNullable(castedResult);
 
         } catch(Exception e) {
             System.out.println("잘못된 입력: " + e.getMessage() + "\n");
@@ -35,9 +33,13 @@ class ArithmeticCalculator {
         return Optional.empty();
     }
 
+
     public Queue<Number> getHistoryGreaterThan(Double num){
+        // stream 활용
         return history.stream()
                 .filter(h -> h.doubleValue() > num)
                 .collect(Collectors.toCollection(LinkedList::new));
     }
+
+
 }

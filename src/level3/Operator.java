@@ -1,57 +1,28 @@
 package level3;
 
 enum Operator {
-    ADD('+', (a, b) -> {
-        if(a instanceof Integer) {
-            return (Integer) a + (Integer) b;
-        } else if(a instanceof Double) {
-            return (Double) a + (Double) b;
-        }
-        throw new IllegalArgumentException("지원하지 않는 타입");
-    }),
-    SUB('-', (a, b) -> {
-        if(a instanceof Integer) {
-            return (Integer) a - (Integer) b;
-        } else if(a instanceof Double) {
-            return (Double) a - (Double) b;
-        }
-        throw new IllegalArgumentException("지원하지 않는 타입");
-    }),
-    MUL('*', (a, b) -> {
-        if(a instanceof Integer) {
-            return (Integer) a * (Integer) b;
-        } else if(a instanceof Double) {
-            return (Double) a * (Double) b;
-        }
-        throw new IllegalArgumentException("지원하지 않는 타입");
-    }),
+    ADD('+', (a, b) -> a.doubleValue() + b.doubleValue()),
+    SUB('-', (a, b) -> a.doubleValue() - b.doubleValue()),
+    MUL('*', (a, b) -> a.doubleValue() * b.doubleValue()),
     DIV('/', (a, b) -> {
-        if(a instanceof Integer) {
-            if((Integer) b == 0) {
-                throw new ArithmeticException("0으로 나눌 수 없다.");
-            }
-            return (Integer) a / (Integer) b;
-        } else if(a instanceof Double) {
-            if((Double) b == 0) {
-                throw new ArithmeticException("0으로 나눌 수 없다.");
-            }
-            return (Double) a / (Double) b;
+        if(b.intValue() == 0) {
+            throw new ArithmeticException("0으로 나눌 수 없다.");
         }
-        throw new IllegalArgumentException("지원하지 않는 타입");
+        return a.doubleValue() / b.doubleValue();
     });
 
     // 속성
     private final char symbol;
-    private final Operate<?> op;
+    private final Operate<Number> op;
 
     // 함수형 인터페이스
     @FunctionalInterface
-    public interface Operate<T> {
+    public interface Operate<T extends Number> {
         T apply(T a, T b) throws Exception;
     }
 
     // 생성자
-    Operator(char symbol, Operate<?> op){
+    Operator(char symbol, Operate<Number> op){
         this.symbol = symbol;
         this.op = op;
     }
@@ -60,10 +31,21 @@ enum Operator {
         return symbol;
     }
 
-    public <T> Operate<T> getOp() {
+    public <T extends Number> T invoke(T a, T b) throws Exception {
+        Number result = null;
+
+        if(a instanceof Integer){
+            result = op.apply(a, b).intValue();
+        } else if(a instanceof Double){
+            result = op.apply(a, b).doubleValue();
+        } else {
+            throw new IllegalArgumentException("정수나 실수 타입이 아닙니다.");
+        }
+
         @SuppressWarnings("unchecked")
-        Operate<T> castedOP = (Operate<T>) op;
-        return castedOP;
+        T castedResult = (T) result;
+
+        return castedResult;
     }
 
     public static Operator findBySymbol(char symbol) {

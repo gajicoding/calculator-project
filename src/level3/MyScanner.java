@@ -13,7 +13,7 @@ class MyScanner {
         double num;
 
         try {
-            num = sc.nextInt();
+            num = sc.nextDouble();
             sc.nextLine(); // 버퍼 비우기
 
             return Optional.of(num);

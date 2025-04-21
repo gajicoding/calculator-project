@@ -17,8 +17,9 @@ public class App {
         System.out.println("계산기 프로그램을 시작합니다..");
 
         while(true) {
-            System.out.print("두 개의 수를 입력하시오: ");
+            System.out.print("첫 번째 수를 입력하시오: ");
             nums[0] = myScanner.inputDoubleNum().orElse(null);
+            System.out.print("두 번째 수를 입력하시오: ");
             nums[1] = myScanner.inputDoubleNum().orElse(null);
             if(nums[0] == null || nums[1] == null) {
                 continue;
@@ -32,6 +33,7 @@ public class App {
 
             if (isIntegerNums(nums) && symbol != Operator.DIV.getSymbol()) {
                 // stream 활용
+
                 nums = Arrays.stream(nums)
                         .map(Number::intValue)
                         .toArray(Number[]::new);
@@ -74,4 +76,5 @@ public class App {
     private static boolean isIntegerNums(Number[] nums) {
         return nums[0].doubleValue() % 1 == 0 && nums[1].doubleValue() % 1 == 0;
     }
+
 }
