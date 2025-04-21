@@ -37,7 +37,7 @@ class ArithmeticCalculator {
         history.add(num);
     }
 
-    public Queue<Number> getHistoryGreaterThan(Double num){
+    public Queue<Number> getHistoryGreaterThan(double num){
         // stream 활용
         return history.stream()
                 .filter(h -> h.doubleValue() > num)
