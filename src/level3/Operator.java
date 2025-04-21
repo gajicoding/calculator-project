@@ -32,7 +32,7 @@ enum Operator {
     }
 
     public <T extends Number> T invoke(T a, T b) throws Exception {
-        Number result = null;
+        Number result;
 
         if(a instanceof Integer){
             result = op.apply(a, b).intValue();

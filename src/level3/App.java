@@ -25,6 +25,7 @@ public class App {
                 continue;
             }
 
+
             System.out.print("사칙연산(+, -, *, /) 기호를 입력하시오: ");
             symbol = myScanner.inputSymbol();
             if(findBySymbol(symbol) == null) {
@@ -33,7 +34,6 @@ public class App {
 
             if (isIntegerNums(nums) && symbol != Operator.DIV.getSymbol()) {
                 // stream 활용
-
                 nums = Arrays.stream(nums)
                         .map(Number::intValue)
                         .toArray(Number[]::new);
