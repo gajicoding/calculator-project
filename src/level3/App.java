@@ -33,10 +33,7 @@ public class App {
             }
 
             if (isIntegerNums(nums) && symbol != Operator.DIV.getSymbol()) {
-                // stream 활용
-                nums = Arrays.stream(nums)
-                        .map(Number::intValue)
-                        .toArray(Number[]::new);
+                nums = convertIntegerNums(nums);
             }
 
             result = calculator.calculate(nums[0], nums[1], symbol);
@@ -75,6 +72,13 @@ public class App {
 
     private static boolean isIntegerNums(Number[] nums) {
         return nums[0].doubleValue() % 1 == 0 && nums[1].doubleValue() % 1 == 0;
+    }
+
+    private static Number[] convertIntegerNums(Number[] nums) {
+        // stream 활용
+        return Arrays.stream(nums)
+                .map(Number::intValue)
+                .toArray(Number[]::new);
     }
 
 }
