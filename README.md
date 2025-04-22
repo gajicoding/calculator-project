@@ -1,13 +1,16 @@
 # CH 2: 계산기 과제
 
 ## 단계별 목표
-- **클래스를 사용하지 않는 계산기:**
-  - [level 1] : `필수 구현` 클래스 없이 자바의 기본 문법만을 사용하여 구현한 계산기
+- **level 1: 클래스를 사용하지 않는 계산기:**
+  - `필수 구현` 클래스 없이 자바의 기본 문법만을 사용하여 구현한 계산기
 
 
-- **클래스를 활용한 계산기:**
-  - [level 2] : `필수 구현` 객체 지향 개념을 적용하여 클래스 정의, 연산을 수행하는 메소드 작성한 계산기
-  - [level 3] : `도전 구현` 자바의 Enum, 제네릭, 람다 & 스트림을 적용한 계산기
+- **level 2: 클래스를 활용한 계산기**
+  - `필수 구현` 객체 지향 개념을 적용하여 클래스 정의, 연산을 수행하는 메소드 작성한 계산기
+
+
+- **Level 3: 고급 기능을 적용한 계산기**
+  - `도전 구현` 자바의 Enum, 제네릭, 람다 & 스트림을 적용한 계산기
 
 
 ## 파일 구조
@@ -59,10 +62,10 @@ src
 
 ### 🌳 Level 3
 - 요구사항 정의 및 설계: [Lv3. 요구사항 정의 및 설계](https://gajicoding.tistory.com/190)
-- 코드 개선 (리팩토링)
-  - [getItems.add(...) vs addItem(...)](https://gajicoding.tistory.com/189)
 - 문제 해결 (트러블 슈팅)
   - [java: incompatible types: T cannot be converted to capture#1 of ?](https://gajicoding.tistory.com/188)
+- 코드 개선 (리팩토링)
+  - [getItems.add(...) vs addItem(...)](https://gajicoding.tistory.com/189)
 - 새로운 지식
   - [Enum 열거형 타입](https://gajicoding.tistory.com/181)
   - [어노테이션(Annotation)](https://gajicoding.tistory.com/187)
