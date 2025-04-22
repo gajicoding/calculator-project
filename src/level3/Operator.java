@@ -31,6 +31,8 @@ enum Operator {
         return symbol;
     }
 
+
+    // 외부에서 op에 접근하는 대신, 내부에서 계산을 수행할 수 있도록 함
     public <T extends Number> T invoke(T a, T b) throws Exception {
         Number result;
 
